@@ -2,8 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:title="Bookstore" />
+        android:title="Bookstore"
+        android:icon="@android:drawable/ic_menu_gallery"/>
     <item
         android:id="@+id/nav_cart"
-        android:title="Order" />
+        android:title="Order"
+        android:icon="@android:drawable/ic_menu_gallery"/>
 </menu>

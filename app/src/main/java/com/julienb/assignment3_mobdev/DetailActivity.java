@@ -47,7 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         }
         else{
             // adding the item to the cart and creating a confirmation toast
-            DataSource.addToCart(new MenuItem(itemName,author, itemDescription, itemPrice, itemImage), Integer.parseInt(desiredQuantity));
+            DataSource.addToCart(new Book(itemName,author, itemDescription, itemPrice, itemImage), Integer.parseInt(desiredQuantity));
             Toast.makeText(this, desiredQuantity + " item(s) added to cart", Toast.LENGTH_SHORT).show();
             // going back tot the previous activity
             finish();
