@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        setTitle("Bibliothèque");
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -34,12 +33,26 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, new BookstoreFragmentContainer())
+                .commit();
+
         navigationView.setNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.nav_home) {
                 drawerLayout.closeDrawer(GravityCompat.START);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new BookstoreFragmentContainer())
+                        .commit();
                 return true;
             }
             if (item.getItemId() == R.id.nav_cart) {
+//                TODO update when orders fragment is ready
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.fragment_container, new OrdersContainer())
+//                        .commit();
                 startActivity(new Intent(MainActivity.this, CartActivity.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
